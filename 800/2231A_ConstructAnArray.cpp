@@ -4,7 +4,7 @@ using namespace std;
 #define endl '\n'
 #define f(i,n)for(int i=0;i<n;i++)
 #define iv(v,n) \
-vector<long long>v(n);\
+vector<long long>v(n);\git
 f(i,n)cin>>v[i];
 #define pb push_back
 #define yes cout<<"YES\n"
