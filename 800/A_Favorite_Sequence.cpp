@@ -17,15 +17,25 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-   int n,k;
-   cin>>n>>k;
-   ll sum=0;
-   vector<int>v(n);
-   for(int i=0;i<n;i++){
-    cin>>v[i];
-    sum+=v[i];
+   int n;
+   cin>>n;
+   vector<ll>v(n);
+   for(int i=0;i<n;i++)cin>>v[i];
+   vector<ll>ans(n);
+   int j=0;
+   for(int i=0;i<(n+1)/2;i++){
+ans[j]=(v[i]);
+j=j+2;
+   }
+   //for(auto x:ans)cout<<x<<' ';
+   //cout<<endl;
+   int index=(n+1)/2;
+   int k=1;
+   for(int i=n-1;i>=index;i--){
+    ans[k]=v[i];
+    k=k+2;
+   }
+   for(auto x:ans)cout<<x<<' ';
+   cout<<endl;
     }
-    if(sum%2!=0 || (n*k)%2==0)yes;
-    else no;
-}
 }
