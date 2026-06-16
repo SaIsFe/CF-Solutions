@@ -21,17 +21,27 @@ int main() {
    cin>>n;
    vector<ll>v(n);
    for(int i=0;i<n;i++)cin>>v[i];
-   sort(v.rbegin(),v.rend());
-   bool f=0;
-   for(int i=0;i<n-2;i++){
-    if(v[i]%v[i+1]!=v[i+2]){
-        f=1;
-        break;
+for(int i=0;i<n;i++){
+    vector<ll>cw(n),acw(n),ans(n);
+    // clockwise
+    for(int j=1;j<n;j++){
+        int cur=(i+j)%n;
+        int pre=(i+j-1)%n;
+        cw[cur]=max(cw[pre],v[pre]);
     }
-   }
-   if(f)cout<<-1<<endl;
-   else{
-    cout<<v[0]<<' '<<v[1]<<endl;
-   }
+    // anti clockwise
+    for(int j=1;j<n;j++){
+    int cur = (i - j + n) % n;
+    int pre = (i - j + 1 + n) % n;
+    acw[cur] = max(acw[pre], v[cur]);
+}
+for(int i=0;i<n;i++){
+    ans[i]=min(cw[i],acw[i]);
+}
+ll sum=0;
+for(auto x:ans)sum+=x;
+cout<<sum<<' ';
+}
+cout<<endl;
     }
 }
