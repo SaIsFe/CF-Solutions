@@ -19,27 +19,26 @@ int main() {
     while(t--){
    int n;
    cin>>n;
-   vector<ll>v(n);
-   for(int i=0;i<n;i++)cin>>v[i];
-   sort(v.begin(),v.end());
-   int od=0,ev=0;// odd and even count
-    ll od_sum=0;
-   ll ev_sum=0;
+   vector<int>v(n);
+   set<int>st;
    for(int i=0;i<n;i++){
-    if(v[i]%2==0){
-        ev++;
-        ev_sum+=v[i];
-    }
-    else{
-od++;
-od_sum+=v[i];
-}
+    cin>>v[i];
+    st.insert(v[i]);
    }
-   if(od==n || ev==n){
-    cout<<v[n-1]<<endl;
+   if(st.size()==1){
+    cout<<-1<<endl;
     continue;
    }
- ll ans=od_sum-(od-1)+ev_sum;// odd sum -(odd count -1)+even sum
- cout<<ans<<endl;
+   vector<int>ans;
+   for(int i=1;i<n-1;i++){
+    if(v[i]!=v[0])ans.pb(i);
+   }
+  int prefix=ans[0];
+  int sufix=(n-1)-ans[ans.size()-1];
+  int mn=min(prefix,sufix);
+  for(int i=1;i<ans.size();i++){
+    mn=min(mn,ans[i]-ans[i-1]-1);
+  }
+  cout<<mn<<endl;
     }
 }
