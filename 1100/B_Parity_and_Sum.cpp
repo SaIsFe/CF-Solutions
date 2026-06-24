@@ -38,7 +38,6 @@ if(v[n-1]&1){
     cout<<ev<<endl;
     continue;
 }
-//ll sum=0;
 int idx;
 for(int i=n-1;i>=0;i--){
     if(v[i]%2!=0){
@@ -55,9 +54,11 @@ for(int i=idx-1;i>=0;i--){
     }
 }
 int evcnt=n-1-idx;
+// right side theke cost count 
 ll cost=0;
 if(sum>v[n-1])cost=evcnt+cnt;
 else cost=evcnt+1+cnt;
+// left side theke cost count
 ll cost1=cnt;
 for(int i=idx+1;i<n;i++){
     if(sum>v[i]){
