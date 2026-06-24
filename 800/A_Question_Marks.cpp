@@ -19,15 +19,19 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-  int x,y,k;
-  cin>>x>>y>>k;
-  if(k%2!=0){
-    cout<<x<<' '<<y<<endl;
-    k=k-1;
-  }
-  for(int i=1;i<=k/2;i++){
-    cout<<x-i<<' '<<y<<endl;
-    cout<<x+i<<' '<<y<<endl;
-  }
+  int n;
+  cin>>n;
+  string s;
+  cin>>s;
+  int cnta=count(s.begin(),s.end(),'A');
+  int cntb=count(s.begin(),s.end(),'B');
+  int cntc=count(s.begin(),s.end(),'C');
+  int cntd=count(s.begin(),s.end(),'D');
+  cnta=min(n,cnta);
+    cntb=min(n,cntb);
+  cntc=min(n,cntc);
+  cntd=min(n,cntd);
+  cout<<cnta+cntb+cntc+cntd<<endl;
+
     }
 }
