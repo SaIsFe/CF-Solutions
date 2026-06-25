@@ -21,17 +21,13 @@ int main() {
     while(t--){
   int n;
   cin>>n;
-  string s;
-  cin>>s;
-  int cnta=count(s.begin(),s.end(),'A');
-  int cntb=count(s.begin(),s.end(),'B');
-  int cntc=count(s.begin(),s.end(),'C');
-  int cntd=count(s.begin(),s.end(),'D');
-  cnta=min(n,cnta);
-    cntb=min(n,cntb);
-  cntc=min(n,cntc);
-  cntd=min(n,cntd);
-  cout<<cnta+cntb+cntc+cntd<<endl;
-
+  vector<ll>v(n);
+  for(int i=0;i<n;i++)cin>>v[i];
+  ll lar=0;
+  for(int i=0;i<n-1;i++){
+lar=max(lar,v[i]);
+  }
+  ll sum=v[n-1]+lar;
+  cout<<sum<<endl;
     }
 }
