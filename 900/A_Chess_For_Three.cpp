@@ -19,19 +19,20 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-  int n;
-  cin>>n;
-  vector<int>v(n);
-  for(int i=0;i<n;i++)cin>>v[i];
-  bool f=0;
-  for(int i=0;i<n;i++){
-    int cnt=count(v.begin(),v.end(),v[i]);
-    if(cnt%2!=0){
-        f=1;
-        break;
+  int a,b,c;
+  cin>>a>>b>>c;
+  int sum=a+b+c;
+  if(sum &1)cout<<-1<<endl;
+  else{
+    int ab=a+b;
+    int cost;
+    if(ab>c){
+        cost=c+(ab-c)/2;
     }
+    else{
+cost=ab;
+    }
+    cout<<cost<<endl;
   }
-  if(f)yes;
-  else no;
     }
 }
