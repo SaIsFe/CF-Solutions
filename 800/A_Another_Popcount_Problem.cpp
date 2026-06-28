@@ -19,14 +19,21 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-  ll n,a,b;
-  cin>>n>>a>>b;
-  if(a>b){
-    cout<<n*a<<endl;
-    continue;
+  ll n,k;
+  cin>>n>>k;
+  ll sum=0;
+  ll cnt=0;
+  for(int i=0;i<32;i++){
+    ll cost=1<<i;
+    ll times=k;
+    while(times>0){
+        sum+=cost;
+        if(sum>n)break;
+        cnt++;
+        times--;
+    }
+    if(sum>=n)break;
   }
-  ll k=min(n,b-a);
- ll profit=(b+(b-k+1))*k/2+(n-k)*a; // sum=((first element+last element)*number of element)/2
- cout<<profit<<endl;
+  cout<<cnt<<endl;
     }
 }
