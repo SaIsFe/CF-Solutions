@@ -19,29 +19,9 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-  int n;
-  cin>>n;
-  n--;
-  vector<ll>v(n);
-  for(int i=0;i<n;i++){
-    cin>>v[i];
-  }
-  vector<ll>ans;
-  if(v[0]<=v[1]){
-    ans.pb(0);
-  }
-  else{
-    ans.pb(v[0]);
-  }
-  ll cur,next;
-  for(int i=0;i<n-1;i++){
-    cur=v[i];
-    next=v[i+1];
-    if(cur>next)ans.pb(next);
-    else ans.pb(v[i]);
-  }
-  ans.pb(v[n-1]);
-  for(auto x:ans)cout<<x<<' ';
-  cout<<endl;
+  ll n,k;
+  cin>>n>>k;
+  if(k>=30)cout<<n+1<<endl;
+  else cout<<min(1LL<<k,n+1)<<endl;
     }
 }
