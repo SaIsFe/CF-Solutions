@@ -19,37 +19,24 @@ int main() {
     int t;
     cin>>t;
     while(t--){
- int n,k;
- cin>>n>>k;
- vector<int>v(n);
- for(int i=0;i<n;i++)cin>>v[i];
- sort(v.begin(),v.end());
- vector<int>ans;
- int cnt=1;
- for(int i=1;i<n;i++){
-if(v[i]!=v[i-1]){
-    ans.pb(cnt);
-    cnt=1;
-}
-else cnt++;
- }
- ans.pb(cnt);
- sort(ans.rbegin(),ans.rend());
- if(ans[0]<k){
-    cout<<n<<endl;
+  int n;
+  cin>>n;
+  vector<ll>v(n);
+  for(int i=0;i<n;i++)cin>>v[i];
+  sort(v.begin(),v.end());
+  v.erase(unique(v.begin(),v.end()),v.end());
+  if(v.size()==1 || v[0]>1){
+    cout<<"Alice"<<endl;
     continue;
+  }
+ ll mex=1;
+ for(auto x:v){
+  if(mex==x)mex++;
+  else break;
  }
- int sum=k-1;
- int idx;
- for(int i=0;i<ans.size();i++){
-if((k-1+ans[i])<k){
-    idx=i;
-    break;
-}
- }
- for(int i=idx;i<ans.size();i++){
-    sum+=ans[i];
- }
- cout<<sum<<endl;
+ ll mx=v.back();
+ if(mex>mx)mex=mx;
+ if(mex%2==1)cout<<"Alice"<<endl;
+ else cout<<"Bob"<<endl;
     }
 }
