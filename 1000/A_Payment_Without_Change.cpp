@@ -19,15 +19,18 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-  int n;
-  cin>>n;
-  vector<int>v(n),ans;
-  for(int i=0;i<n;i++)cin>>v[i];
-for(int i=1;i<n;i++){
-    ans.pb(v[i]);
-}
-ans.pb(v[0]);
-for(auto x:ans)cout<<x<<' ';
-cout<<endl;
+  ll a,b,n,s;
+  cin>>a>>b>>n>>s;
+  ll rem=s%n;
+  ll q=s/n;
+  if(q>a){
+    s=s-(a*n);
+    if(s<=b)yes;
+    else no;
+  }
+  else{
+    if(rem<=b)yes;
+    else no;
+  }
     }
 }
