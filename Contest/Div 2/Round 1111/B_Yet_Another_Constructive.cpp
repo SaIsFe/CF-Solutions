@@ -19,6 +19,26 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-  
+  ll n,k,m;
+  cin>>n>>k>>m;
+  vector<ll>ans;
+  if(k==1){
+    yes;
+    for(ll i=0;i<n;i++)ans.pb(m);
+      for(auto x:ans)cout<<x<<" ";
+    cout<<endl;
+  }
+  else{
+    if(k>m)no;
+    else{
+        yes;
+        for(ll i=1;i<=n;i++){
+            if(i%k==0)ans.pb(m-(k-1));
+            else ans.pb(1);
+        }
+    }
+    for(auto x:ans)cout<<x<<" ";
+    cout<<endl;
+  }
     }
 }

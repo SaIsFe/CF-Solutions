@@ -31,8 +31,6 @@ int main() {
   if(n%2!=0)no;
   else{
     int cnt=0;
-    int block_p=0;
-    int block_n=0;
     for(int i=0;i<n-1;i=i+2){
         if(v[i]==v[i+1]){
             cnt++;
